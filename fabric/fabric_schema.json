@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "grid", "tile", "islands", "routing", "noc"],
+  "properties": {
+    "name": {"type": "string"},
+    "grid": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1}
+      }
+    },
+    "tile": {
+      "type": "object",
+      "required": ["capacity"],
+      "properties": {
+        "capacity": {"type": "integer", "minimum": 1}
+      }
+    },
+    "islands": {
+      "type": "object",
+      "required": ["rows", "cols"],
+      "properties": {
+        "rows": {"type": "integer", "minimum": 1},
+        "cols": {"type": "integer", "minimum": 1}
+      }
+    },
+    "routing": {
+      "type": "object",
+      "required": ["local", "regional"],
+      "properties": {
+        "local": {
+          "type": "object",
+          "required": ["delay_per_hop"],
+          "properties": {
+            "delay_per_hop": {"type": "number", "minimum": 0},
+            "capacity_bits_per_cycle": {"type": "number", "minimum": 0}
+          }
+        },
+        "regional": {
+          "type": "object",
+          "required": ["delay_per_hop"],
+          "properties": {
+            "delay_per_hop": {"type": "number", "minimum": 0},
+            "capacity_bits_per_cycle": {"type": "number", "minimum": 0}
+          }
+        }
+      }
+    },
+    "noc": {
+      "type": "object",
+      "required": ["router_latency", "link_bandwidth"],
+      "properties": {
+        "router_latency": {"type": "number", "minimum": 0},
+        "link_bandwidth": {"type": "number", "minimum": 0}
+      }
+    }
+  }
+}

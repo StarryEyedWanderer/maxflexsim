@@ -1,0 +1,11 @@
+{
+  "name": "fabric_default",
+  "grid": {"width": 64, "height": 64},
+  "tile": {"capacity": 1},
+  "islands": {"rows": 4, "cols": 4},
+  "routing": {
+    "local": {"delay_per_hop": 0.8, "capacity_bits_per_cycle": 128.0},
+    "regional": {"delay_per_hop": 1.6, "capacity_bits_per_cycle": 256.0}
+  },
+  "noc": {"router_latency": 2.5, "link_bandwidth": 256.0}
+}
