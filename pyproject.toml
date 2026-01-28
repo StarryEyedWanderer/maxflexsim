@@ -1,0 +1,45 @@
+[project]
+name = "maxflexsim"
+version = "0.1.0"
+description = "MaxFlexSim prototype compiler and runtime."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "MaxFlexSim Contributors" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "mypy>=1.7.0",
+  "ruff>=0.3.0",
+]
+
+[project.scripts]
+maxflex = "maxflexsim.cli:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

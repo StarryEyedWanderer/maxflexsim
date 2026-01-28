@@ -1,0 +1,2 @@
+a,b,c,d: i16
+y = add(add(a,b), add(c,d))

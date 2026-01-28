@@ -1,0 +1,11 @@
+{
+  "name": "fabric_small",
+  "grid": {"width": 16, "height": 16},
+  "tile": {"capacity": 1},
+  "islands": {"rows": 2, "cols": 2},
+  "routing": {
+    "local": {"delay_per_hop": 1.0},
+    "regional": {"delay_per_hop": 2.0}
+  },
+  "noc": {"router_latency": 3.0, "link_bandwidth": 128.0}
+}
