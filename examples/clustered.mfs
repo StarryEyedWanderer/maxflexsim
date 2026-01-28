@@ -1,0 +1,3 @@
+a,b,c: i16
+@latency(y) <= 5 ns
+y = add(add(a,b), c)

@@ -1,0 +1,2 @@
+a,b,c: i16
+y = add(mul(a,b), c)

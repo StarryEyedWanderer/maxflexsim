@@ -1,0 +1,36 @@
+?start: statement*
+
+?statement: declaration
+          | assignment
+          | constraint
+
+?declaration: NAME ("," NAME)* ":" TYPE
+
+?assignment: NAME "=" expr
+
+?constraint: "@" NAME "(" NAME ")" "<=" constraint_value
+
+?constraint_value: NUMBER UNIT   -> num_constraint
+                 | NAME          -> name_constraint
+
+?expr: expr "+" term   -> add
+     | expr "-" term   -> sub
+     | term
+
+?term: term "*" factor -> mul
+     | factor
+
+?factor: NAME           -> var
+       | NUMBER         -> number
+       | NAME "(" arg_list ")" -> call
+       | "(" expr ")"
+
+?arg_list: (expr ("," expr)*)?
+
+TYPE: /i(16|32)/
+UNIT: /ns/
+
+%import common.CNAME -> NAME
+%import common.SIGNED_NUMBER -> NUMBER
+%import common.WS
+%ignore WS
